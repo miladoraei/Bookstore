@@ -1,3 +1,5 @@
+package humanPack;
+
 public class Human {
     String firstName;
     String secondName;
