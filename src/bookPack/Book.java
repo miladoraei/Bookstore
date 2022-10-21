@@ -1,9 +1,9 @@
 package bookPack;
 
 public class Book {
-    String name;
-    String pYear;
-    String bookCode;
+    private String name;
+    private String pYear;
+    private String bookCode;
 
     public Book(String name, String pYear, String bookCode) {
         this.name = name;

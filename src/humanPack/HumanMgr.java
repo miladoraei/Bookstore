@@ -8,7 +8,7 @@ public class HumanMgr {
 
     //sending connection to data access
     public HumanMgr(Connection connection) {
-        connection = humanDA.getCon();
+        humanDA.setCon(connection);
     }
 
     //Human add mgr

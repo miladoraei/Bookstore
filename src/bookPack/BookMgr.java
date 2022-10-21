@@ -8,7 +8,7 @@ public class BookMgr {
 
     //sending connection to data access
     public BookMgr(Connection connection) {
-        connection = bookDA.getCon();
+        bookDA.setCon(connection);
     }
 
     //Book add mgr

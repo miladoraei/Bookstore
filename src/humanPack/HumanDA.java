@@ -17,12 +17,15 @@ public class HumanDA {
 
     //addhuman
     protected void addPeople(Human human) throws SQLException {
-        PreparedStatement preparedStatement = con.prepareStatement("insert into human (firstName , secondName, idNum , telephone , address) values (?,?,?, ? ,? ) ");
-        preparedStatement.setString(1, human.getFirstName());
-        preparedStatement.setString(2, human.getSecondName());
-        preparedStatement.setString(3, human.getIdNum());
-        preparedStatement.setString(4, human.getTelephone());
-        preparedStatement.setString(5, human.getAddres());
+        int x=human.getId()+1;
+        PreparedStatement preparedStatement = con.prepareStatement("insert into human ( id,firstName , secondName, idNum , telephone , addres) values (?,?,?, ? ,? ,?) ");
+        preparedStatement.setInt(1, x);
+        human.setId(x);
+        preparedStatement.setString(2, human.getFirstName());
+        preparedStatement.setString(3, human.getSecondName());
+        preparedStatement.setString(4, human.getIdNum());
+        preparedStatement.setString(5, human.getTelephone());
+        preparedStatement.setString(6, human.getAddres());
         preparedStatement.executeUpdate();
         preparedStatement.close();
     }
@@ -31,7 +34,7 @@ public class HumanDA {
     protected void deleteHuman(String fName, String sName) throws SQLException {
         PreparedStatement preparedStatement = con.prepareStatement("delete from human where firstName=? , SecondName=?");
         preparedStatement.setString(1, fName);
-        preparedStatement.setString(1, sName);
+        preparedStatement.setString(2, sName);
         preparedStatement.executeUpdate();
         preparedStatement.close();
     }

@@ -1,11 +1,13 @@
 package humanPack;
 
 public class Human {
-    String firstName;
-    String secondName;
-    String idNum;
-    String telephone;
-    String addres;
+
+    private int id=0;
+    private String firstName;
+    private String secondName;
+    private String idNum;
+    private String telephone;
+    private String addres;
 
     public Human(String firstName, String secondName, String idNum, String telephone, String addres) {
         this.firstName = firstName;
@@ -13,6 +15,14 @@ public class Human {
         this.idNum = idNum;
         this.telephone = telephone;
         this.addres = addres;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getFirstName() {
