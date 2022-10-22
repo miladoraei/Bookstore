@@ -1,9 +1,9 @@
 package bookPack;
 
 public class Book {
-    String name;
-    String pYear;
-    String bookCode;
+    private String name;
+    private String pYear;
+    private String bookCode;
 
     public Book(String name, String pYear, String bookCode) {
         this.name = name;
@@ -35,8 +35,7 @@ public class Book {
         this.bookCode = bookCode;
     }
 
-    public void print()
-    {
+    public void print() {
         System.out.println(String.format("This is %s book, the publish year is %s and the code book is %s", name, pYear, bookCode));
 
     }

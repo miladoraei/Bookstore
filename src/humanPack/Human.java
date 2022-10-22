@@ -1,11 +1,11 @@
 package humanPack;
 
 public class Human {
-    String firstName;
-    String secondName;
-    String idNum;
-    String telephone;
-    String addres;
+    private String firstName;
+    private String secondName;
+    private String idNum;
+    private String telephone;
+    private String addres;
 
     public Human(String firstName, String secondName, String idNum, String telephone, String addres) {
         this.firstName = firstName;
@@ -54,5 +54,10 @@ public class Human {
     public void setAddres(String addres) {
         this.addres = addres;
     }
+    public void print()
+    {
+        System.out.println(String.format("name: %s %s IDNumber: %s, Telephone no: %s and address is %s",firstName,secondName,idNum,telephone,addres));
+    }
+
 }
 

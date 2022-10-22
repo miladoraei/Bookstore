@@ -1,8 +1,13 @@
 package bookPack;
 
+import humanPack.Human;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BookDA {
     private Connection con;
@@ -30,5 +35,15 @@ public class BookDA {
         preparedStatement.executeUpdate();
         preparedStatement.close();
     }
-
+    //reader
+    protected List<Book> Bookreader() throws SQLException {
+        PreparedStatement preparedStatement = con.prepareStatement("select * from book");
+        ResultSet resultset = preparedStatement.executeQuery();
+        List<Book> bookList = new ArrayList<>();
+        while (resultset.next()) {
+            Book book = new Book(resultset.getString("name"), resultset.getString("pYear"), resultset.getString("bookcode"));
+            bookList.add(book);
+        }
+        return bookList;
+    }
 }

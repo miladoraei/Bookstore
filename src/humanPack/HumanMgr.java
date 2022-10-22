@@ -2,13 +2,14 @@ package humanPack;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 public class HumanMgr {
     private HumanDA humanDA = new HumanDA();
 
     //sending connection to data access
     public HumanMgr(Connection connection) {
-        connection = humanDA.getCon();
+        humanDA.setCon(connection);
     }
 
     //Human add mgr
@@ -24,6 +25,14 @@ public class HumanMgr {
     public void deleteHuman(String fName, String sName) {
         try {
             humanDA.deleteHuman(fName, sName);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    //read
+    public List<Human> humanList() {
+        try {
+            return humanDA.HumanReader();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

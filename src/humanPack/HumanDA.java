@@ -2,7 +2,10 @@ package humanPack;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HumanDA {
     private Connection con;
@@ -17,7 +20,7 @@ public class HumanDA {
 
     //addhuman
     protected void addPeople(Human human) throws SQLException {
-        PreparedStatement preparedStatement = con.prepareStatement("insert into human (firstName , secondName, idNum , telephone , address) values (?,?,?, ? ,? ) ");
+        PreparedStatement preparedStatement = con.prepareStatement("insert into human (firstName , secondName, idNum , telephone , addres) values (?,?,?, ? ,? ) ");
         preparedStatement.setString(1, human.getFirstName());
         preparedStatement.setString(2, human.getSecondName());
         preparedStatement.setString(3, human.getIdNum());
@@ -29,10 +32,21 @@ public class HumanDA {
 
     //delete human
     protected void deleteHuman(String fName, String sName) throws SQLException {
-        PreparedStatement preparedStatement = con.prepareStatement("delete from human where firstName=? , SecondName=?");
+        PreparedStatement preparedStatement = con.prepareStatement("delete from human where firstName=? and secondName=? ");
         preparedStatement.setString(1, fName);
-        preparedStatement.setString(1, sName);
+        preparedStatement.setString(2, sName);
         preparedStatement.executeUpdate();
         preparedStatement.close();
+    }
+    //reader
+    protected List<Human> HumanReader() throws SQLException {
+        PreparedStatement preparedStatement = con.prepareStatement("select * from human");
+        ResultSet resultset = preparedStatement.executeQuery();
+        List<Human> humanList = new ArrayList<>();
+        while (resultset.next()) {
+            Human human = new Human(resultset.getString("firstName"), resultset.getString("secondName"), resultset.getString("idNum"), resultset.getString("telephone"), resultset.getString("addres"));
+            humanList.add(human);
+        }
+        return humanList;
     }
 }
