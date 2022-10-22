@@ -1,6 +1,9 @@
 package humanPack;
 
 public class Human {
+
+    private int id=0;
+
     private String firstName;
     private String secondName;
     private String idNum;
@@ -13,6 +16,14 @@ public class Human {
         this.idNum = idNum;
         this.telephone = telephone;
         this.addres = addres;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getFirstName() {
