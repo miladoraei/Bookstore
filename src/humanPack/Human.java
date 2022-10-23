@@ -2,7 +2,7 @@ package humanPack;
 
 public class Human {
 
-    private int id=0;
+    private int id;
 
     private String firstName;
     private String secondName;
@@ -16,6 +16,14 @@ public class Human {
         this.idNum = idNum;
         this.telephone = telephone;
         this.addres = addres;
+    }
+    public Human(int id, String firstName, String secondName, String idNum, String telephone, String addres) {
+        this.firstName = firstName;
+        this.secondName = secondName;
+        this.idNum = idNum;
+        this.telephone = telephone;
+        this.addres = addres;
+        this.id=id;
     }
 
     public int getId() {
@@ -67,7 +75,7 @@ public class Human {
     }
     public void print()
     {
-        System.out.println(String.format("name: %s %s IDNumber: %s, Telephone no: %s and address is %s",firstName,secondName,idNum,telephone,addres));
+        System.out.println(String.format("name: %s %s IDNumber: %s, Telephone no: %s and address is %s and the id is %d",firstName,secondName,idNum,telephone,addres, id));
     }
 
 }

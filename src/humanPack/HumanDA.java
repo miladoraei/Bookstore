@@ -44,7 +44,7 @@ public class HumanDA {
         ResultSet resultset = preparedStatement.executeQuery();
         List<Human> humanList = new ArrayList<>();
         while (resultset.next()) {
-            Human human = new Human(resultset.getString("firstName"), resultset.getString("secondName"), resultset.getString("idNum"), resultset.getString("telephone"), resultset.getString("addres"));
+            Human human = new Human(resultset.getInt("id"),resultset.getString("firstName"), resultset.getString("secondName"), resultset.getString("idNum"), resultset.getString("telephone"), resultset.getString("addres"));
             humanList.add(human);
         }
         return humanList;

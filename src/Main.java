@@ -24,7 +24,7 @@ public class Main {
             LendTable lendTable = new LendTable("001", 1, "2022-7-15");
             LendTableMgr lendTableMgr = new LendTableMgr(conn);
             //delete kardane dade ghabli ha
-            humanMgr.deleteHuman("milad", "oraei");
+           // humanMgr.deleteHuman("milad", "oraei");
             bookMgr.deleteBook("fairytale");
             lendTableMgr.deletelend(1);
             //add kardane dade jadida
